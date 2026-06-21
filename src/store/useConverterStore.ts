@@ -99,14 +99,14 @@ export const useConverterStore = create<ConverterState>((set, get) => ({
   },
 
   setFromUnit: (unit) => {
-    const { category, toUnit, fromValue, lastEdited } = get();
-    const recalced = recalc(category, unit, toUnit, fromValue, lastEdited);
+    const { category, toUnit, fromValue } = get();
+    const recalced = recalc(category, unit, toUnit, fromValue, 'from');
     set({ fromUnit: unit, ...recalced });
   },
 
   setToUnit: (unit) => {
-    const { category, fromUnit, toValue, lastEdited } = get();
-    const recalced = recalc(category, fromUnit, unit, toValue, lastEdited);
+    const { category, fromUnit, fromValue } = get();
+    const recalced = recalc(category, fromUnit, unit, fromValue, 'from');
     set({ toUnit: unit, ...recalced });
   },
 
